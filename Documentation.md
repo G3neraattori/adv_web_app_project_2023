@@ -69,3 +69,4 @@ I decided to give the page somewhat of a message board look with the messages ge
 | Basic features                                   | 25         |
 | Deployment (can be run by just starting backend) | 2          |
 | Utilization of a frontside framework: React                                                | 5          |
+|Total|32|
