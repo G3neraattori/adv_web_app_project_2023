@@ -1,7 +1,12 @@
 # Advanced Web Applications Project 2023.
 
+## Important for the person scoring this!
+For privacy this same text is also found on this link with name and student number.
+The password for the file is in the moodle return!!
+The file
 
 ## The project
+
 ### Introduction
 The task was to do the following _implement a system that lets users register, login and post new code snippets. Non-authenticated users can see all the content, but they cannot post, edit, or comment items. Data has to be saved to a database and usage of content management systems (CMS, e.g. WordPress or Drupal) is not allowed. Documentation has to be written. These basic features give 25 points from the project._.
 I decided to do basically the minium requirements as I didn't have too much time to do this project along with all the others course works, but none the less all the mandatory requirements should be met. 
@@ -12,6 +17,7 @@ The choices of the technologies were the following:
   <li>Database: MongoDB as it was very familiar for me</li>
   <li>Frontend: React. I originalyl thought this was mandatory if I would have realized it wasn't I would have use Vue or Angular.</li>
   <li>Design: react-bootstrap. I chose this as I had some familiarity with angular bootsrap and it made mobile friendliness easier</li>
+  <li>Other: [Bootswatch](https://bootswatch.com/) for it's great prebuilt themes and [Pixels](https://bootswatch.com/) for images.</li>
 </ul>
 
 ### Workflow
@@ -41,6 +47,9 @@ I decided to give the page somewhat of a message board look with the messages ge
     
     `npm install`
     
+    For debugging also run npm start in this directory
+    `npm start`
+    
   </details>
   
   3. Start mongoDB server if not running already. 
@@ -60,5 +69,3 @@ I decided to give the page somewhat of a message board look with the messages ge
 | Basic features                                   | 25         |
 | Deployment (can be run by just starting backend) | 2          |
 | Utilization of a frontside framework: React                                                | 5          |
-|                                                  |            |
-|                                                  |            |
