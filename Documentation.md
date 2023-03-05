@@ -1,10 +1,5 @@
 # Advanced Web Applications Project 2023.
-
-## Important for the person scoring this!
-For privacy this same text is also found on this link with name and student number.
-The password for the file is in the moodle return!!
-<br/>
-The file
+This is the course project for LUT advanced web applications 2023.
 
 ## The project
 
@@ -37,7 +32,7 @@ I decided to give the page somewhat of a message board look with the messages ge
   </ul>
 
   1. Clone the git repo to your local machine
-    `git clone`
+    `git clone https://github.com/G3neraattori/adv_web_app_project_2023.git`
   
   *(or use cli)*
   2. Navigate to the project root and run `npm install`
