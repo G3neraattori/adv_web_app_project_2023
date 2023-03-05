@@ -1,6 +1,7 @@
 const jwt = require('passport-jwt')
 const User = require('../models/schemas')
 const config = require('../configs/dbconfig')
+//Passport confiq = passport jwt strategy for jwt auth.
 
 module.exports = function (passport){
     let opts = {}

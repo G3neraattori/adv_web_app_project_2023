@@ -7,7 +7,7 @@ import Login from "./components/Login";
 import Homepage from "./components/Homepage"
 import CodeComponent from "./components/CodeComponent";
 import Header from "./components/Header"
-
+//Main APP. Contains routing, header, and bootsrap stylesheet. Stylesheet is from bootswatch.com.
 function App() {
   return (
     <div className="App">

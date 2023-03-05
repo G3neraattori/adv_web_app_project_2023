@@ -3,6 +3,8 @@ const bcrypt = require('bcryptjs')
 const config = require('../configs/dbconfig')
 const e = require("express");
 
+//Although the name is "schamas" contains only the user schema and functions. Couple unused, all should be pretty easy to
+//figure from the function name
 const UserSchema = mongoose.Schema({
    username:{
        type: String,
@@ -14,7 +16,7 @@ const UserSchema = mongoose.Schema({
        required: true,
     },
 
-    email: {type: String}
+    email: {type: String, required: true}
 });
 
 
@@ -37,6 +39,7 @@ module.exports.func = {
     },
 
     addUser: function (newUser, cb) {
+        //Bcrypt for hashing for additional security
         bcrypt.genSalt(10, (err, salt) => {
             bcrypt.hash(newUser.password, salt, (err, hash) => {
                 if (err) {
@@ -51,30 +54,11 @@ module.exports.func = {
     },
 
     compareUserPassword: function (typedPassword, passwordHash , cb){
-       bcrypt.compare(typedPassword, passwordHash, (err, res) =>{
+        //Bcrypt for hashing for additional security
+        bcrypt.compare(typedPassword, passwordHash, (err, res) =>{
            if(err) throw err;
-           //what is this null for? Would work with just response
            cb(null, res);
        });
-    },
-
-    saveToUser: function (username, givenPname , givenPsize, cb){
-        let save = { pname: givenPname, psize: givenPsize }
-
-        User.updateOne(
-            {username: username},
-            {$addToSet: {saved: save}},
-            cb,function(err) { console.log(err) });
-
-    },
-
-    removeFromUser: function (username, givenPname , givenPsize, cb){
-        let save = { pname: givenPname, psize: givenPsize}
-
-        User.updateOne(
-            {username: username},
-            {$pull: {saved: save}},
-            cb,function(err) { console.log(err) });
     },
 
     isTaken(username, email, cb){

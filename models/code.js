@@ -1,6 +1,8 @@
 const mongoose = require('mongoose')
 const e = require("express");
 const bcrypt = require("bcryptjs");
+
+//schemas for the code snippets and whatnot
 const CommentSchema = mongoose.Schema({
     text: { type: String, required: true },
     author: { type: String, required: true },
@@ -19,6 +21,7 @@ const CodeSnippet = mongoose.model('CodeSnippet', CodeSnippetSchema);
 const Comment = mongoose.model('Comment', CommentSchema);
 module.exports = {Comment, CodeSnippet};
 
+//functions are wrapped to single export. Names should explain what they do. Just basic mongoose commands
 module.exports.func = {
     addCode: function (newCode, cb) {
         newCode.save(cb);

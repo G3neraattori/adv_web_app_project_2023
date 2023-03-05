@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Form, Button } from 'react-bootstrap';
 
 function Login() {
     const navigate = useNavigate();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
+    //Handlers for the text fields
     const handleEmailChange = (event) => {
         setEmail(event.target.value);
     };
@@ -14,6 +16,7 @@ function Login() {
         setPassword(event.target.value);
     };
 
+    //post to authentication.
     const handleSubmit = (event) => {
         event.preventDefault();
         fetch(`http://localhost:5000/users/authenticate`, {
@@ -26,10 +29,13 @@ function Login() {
             .then((response) => response.json())
             .then((data) => {
                 console.log(data);
+                //If it was success login and set jwt token
                 if (data.success) {
                     sessionStorage.setItem("jwtToken", data.token);
                     sessionStorage.setItem("user", JSON.stringify(data.user))
+                    //redirect
                     navigate('/code')
+                    //this is for the header to reload.
                     window.location.reload()
                 } else {
                     // handle login failure
@@ -41,23 +47,18 @@ function Login() {
     return (
         <div>
             <h1>Login</h1>
-            <form onSubmit={handleSubmit}>
-                <label>
-                    Email:
-                    <input type="email" value={email} onChange={handleEmailChange} />
-                </label>
-                <br />
-                <label>
-                    Password:
-                    <input
-                        type="password"
-                        value={password}
-                        onChange={handlePasswordChange}
-                    />
-                </label>
-                <br />
-                <button type="submit">Login</button>
-            </form>
+            <Form onSubmit={handleSubmit}>
+                <Form.Group controlId="formBasicEmail">
+                    <Form.Label>Email:</Form.Label>
+                    <Form.Control required type="email" placeholder="Email" value={email} onChange={handleEmailChange} />
+                </Form.Group>
+
+                <Form.Group controlId="formBasicPassword">
+                    <Form.Label>Password:</Form.Label>
+                    <Form.Control required type="password" placeholder="Password" value={password} onChange={handlePasswordChange} />
+                </Form.Group>
+                <Button variant="primary" type="submit">Login</Button>
+            </Form>
         </div>
     );
 }
