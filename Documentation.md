@@ -58,9 +58,8 @@ I decided to give the page somewhat of a message board look with the messages ge
     `git clone https://github.com/G3neraattori/adv_web_app_project_2023.git`
   
   *(or use cli)*
-  2. Navigate to the project root and run `npm install`
   
-  to get the required backend libraries.
+  2. Navigate to the project root and run `npm install` to get the required backend libraries.
   <details>
     <summary>2.5</summary>
     If you want to run the frontend seperately or run it in dev mode navigate to _adv_web_app_project_ (the frontend directory) and run 
@@ -68,6 +67,7 @@ I decided to give the page somewhat of a message board look with the messages ge
     `npm install`
     
     For debugging also run npm start in this directory
+    
     `npm start`
     
   </details>
@@ -112,3 +112,5 @@ Almost all of the pages use cards to contain the content this is mostly because 
 | Deployment (can be run by just starting backend) | 2          |
 | Utilization of a frontside framework: React      | 5          |
 | **Total**                                        | **32**     |
+
+© G3neraattori
