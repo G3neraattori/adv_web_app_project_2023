@@ -20,7 +20,7 @@ router.post('/register', (req, res, next) => {
         if(err) throw err;
         if(!user){
             User.func.getUserByUsername(req.body.username, (err, user) =>{
-                if(err) throw err;
+                if(err) throw err; //simple error handling
                 if(!user){
                     User.func.addUser(newUser, (err, user) =>{
 
@@ -109,11 +109,6 @@ router.post('/username', (req, res, next) => {
         }
         return res.json({success: true, msg: 'Both available'})
     })
-
-
-
-
-
 })
 
 router.get('/profile', passport.authenticate('jwt', {session: false}), (req, res, next) => {

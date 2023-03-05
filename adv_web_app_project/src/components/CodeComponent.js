@@ -78,8 +78,10 @@ const CodeComponent = () => {
     return (
         <Container class="d-grid gap-3">
             <Row>
+                {/*If jwt token exists. user is logged in. This will show the content according to the logged in status*/}
             {!sessionStorage.getItem('jwtToken') && <p style={{paddingTop: "1vh"}}>Login to post</p>}
             {sessionStorage.getItem('jwtToken') && (
+                /*Simple for to create a code snippet. Style is to save the line breaks in the code.*/
                 <Form onSubmit={handleSubmit} >
                 <Form.Group>
                     <Form.Label>Write your code:</Form.Label>
@@ -97,10 +99,12 @@ const CodeComponent = () => {
             </Row>
             <hr/>
             <Row>
+                {/*The list of codes. Cards are used to contain each of the codes.*/}
             <ListGroup >
             <ListGroup.Item variant="primary">Code board:</ListGroup.Item>
                 {Array.from(codes).map((codeText) => (
                 <Card>
+                    {/*date-fns to format date*/}
                 <Card.Header className="text-start">{format(new Date(codeText.dateCreated), 'dd/MM/yyyy HH:mm')}- {codeText.author} posted a code snippet:</Card.Header>
                     <ListGroup.Item key={codeText._id}>
                     <Card.Body>
@@ -113,10 +117,11 @@ const CodeComponent = () => {
                     <Accordion.Header>Comments</Accordion.Header>
                     <Accordion.Body className="text-start">
                         {codeText.comments && codeText.comments.length > 0 && (
-
+                            /*Comments. Cards are also used here. Date is formatted with date-fns*/
                             <ListGroup className="mt-3" variant="flush">
                                 {Array.from(codeText.comments).map((comment) => (
                                     <ListGroup.Item key={comment._id}>
+                                        {/*Cards also used here for clarity*/}
                                         <Card><Card.Header>({format(new Date(comment.dateCreated), 'dd/MM/yyyy HH:mm')}) {comment.author} commented:</Card.Header>
                                             <Card.Body style={{whiteSpace: "pre-wrap"}}>{comment.text}</Card.Body>
                                         </Card>
@@ -126,6 +131,8 @@ const CodeComponent = () => {
                         )}
                     {!sessionStorage.getItem('jwtToken') && <p style={{paddingTop: "1vh"}}>Login to comment</p>}
                     {sessionStorage.getItem('jwtToken') && (
+                        /*Comment form same stuff pretty much as the code block, just different state handler. The form does not take into account that there can be multiple comment fields.
+                        * however this is not really that much of a problem as they still work. They will just all update when one is updated, however this is only visual, and it will not add the comment to multiple ones*/
                             <Form onSubmit={(event) => handleCommentSubmit(event, codeText._id)} >
                                 <Form.Group className="mt-3">
                                     <Form.Control
@@ -133,6 +140,7 @@ const CodeComponent = () => {
                                         type="codeText"
                                         placeholder="Add a comment..."
                                         value={comment}
+                                        style={{whiteSpace: "pre"}}
                                         onChange={(event) => setComment(event.target.value)}
                                     />
                                 </Form.Group>

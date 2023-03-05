@@ -12,6 +12,7 @@ function App() {
   return (
     <div className="App">
         <Header/>
+        {/*React router dom routing*/}
       <Router>
         <div>
           <Routes>
@@ -22,7 +23,7 @@ function App() {
           </Routes>
         </div>
       </Router>
-
+        {/*Since i'm using react-bootstrap this is for it's theme. Stylesheet is from bootswatch.com. */}
       <link
           rel="stylesheet"
           href="https://bootswatch.com/5/cosmo/bootstrap.min.css"

@@ -2,12 +2,13 @@ const mongoose = require('mongoose')
 const e = require("express");
 const bcrypt = require("bcryptjs");
 
-//schemas for the code snippets and whatnot
+//schemas for the comments. First because codesnippets need the scema to exist first
 const CommentSchema = mongoose.Schema({
     text: { type: String, required: true },
     author: { type: String, required: true },
     dateCreated: { type: Date, default: Date.now }
 });
+//code snippet schema
 const CodeSnippetSchema = mongoose.Schema({
     code: { type: String, required: true },
     author: { type: String, required: true },
@@ -33,9 +34,10 @@ module.exports.func = {
         comment.save(cb);
         CodeSnippet.updateOne(
             {_id: code},
-            {$addToSet: {comments: comment}},
+            {$addToSet: {comments: comment}}, //add to set since it's an array
             cb,function(err) { console.log(err) });
     },
+    //this was for edits but I didn'ts have time to implement that
     findCode: function (id, cb){
 
     }

@@ -23,7 +23,7 @@ const UserSchema = mongoose.Schema({
 const User = module.exports = mongoose.model('User', UserSchema)
 
 module.exports.func = {
-
+    //getters. findOne works for custom fields. Id for id.
     getUserById: function (id, res){
         User.findById(id, res);
     },
@@ -38,6 +38,7 @@ module.exports.func = {
         User.findOne(query, res)
     },
 
+    //add user
     addUser: function (newUser, cb) {
         //Bcrypt for hashing for additional security
         bcrypt.genSalt(10, (err, salt) => {
@@ -53,6 +54,7 @@ module.exports.func = {
         });
     },
 
+    //check is password is correct
     compareUserPassword: function (typedPassword, passwordHash , cb){
         //Bcrypt for hashing for additional security
         bcrypt.compare(typedPassword, passwordHash, (err, res) =>{
@@ -61,6 +63,7 @@ module.exports.func = {
        });
     },
 
+    //not currently used. Could also be used to check if user exists.
     isTaken(username, email, cb){
         User.find(
             {username: username},

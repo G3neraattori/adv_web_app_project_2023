@@ -10,8 +10,12 @@ const Homepage = () => (
     <Container className="d-flex flex-column justify-content-center ">
         <h1>Welcome</h1>
             <CardGroup>
+                {/*If jwt in session storage then the user is logged in*/}
             {!sessionStorage.getItem('jwtToken') &&
-            <Card style={{ width: '18rem' }}>
+            /*Cards for easy styling. The images are from pexels.com
+            * All of the buttons just simply link to another page, except logout clears the session storage, and since no jwt = not logged in user logs out.
+            * Then the page is just refreshed to display the correct components*/
+                <Card style={{ width: '18rem' }}>
                 <Card.Img variant="top" src="https://images.pexels.com/photos/3771110/pexels-photo-3771110.jpeg?auto=compress&cs=tinysrgb&w=400"/>
                 <Card.Body>
                     <Card.Title>Register</Card.Title>

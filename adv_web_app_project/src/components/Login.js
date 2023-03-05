@@ -47,6 +47,7 @@ function Login() {
     return (
         <div>
             <h1>Login</h1>
+            {/*Just a simple form to puit in the login details.*/}
             <Form onSubmit={handleSubmit}>
                 <Form.Group controlId="formBasicEmail">
                     <Form.Label>Email:</Form.Label>
