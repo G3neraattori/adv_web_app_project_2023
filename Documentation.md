@@ -5,17 +5,40 @@ This is the course project for LUT advanced web applications 2023.
 
 ### Introduction
 The task was to do the following _implement a system that lets users register, login and post new code snippets. Non-authenticated users can see all the content, but they cannot post, edit, or comment items. Data has to be saved to a database and usage of content management systems (CMS, e.g. WordPress or Drupal) is not allowed. Documentation has to be written. These basic features give 25 points from the project._.
-I decided to do basically the minium requirements as I didn't have too much time to do this project along with all the others course works, but none the less all the mandatory requirements should be met. 
+I decided to do basically the minium requirements (plus a bit extra) as I didn't have too much time to do this project along with all the others course works, but none the less all the mandatory requirements should be met. 
 ### The implementation
 The choices of the technologies were the following:
 <ul>
   <li>Backend: NodeJS (mandatory). I also chose express, cors, passport, and mongoose as I was familiar with them.</li>
   <li>Database: MongoDB as it was very familiar for me</li>
-  <li>Frontend: React. I originalyl thought this was mandatory if I would have realized it wasn't I would have use Vue or Angular.</li>
+  <li>Frontend: React. I originally thought this was mandatory if I would have realized it wasn't I would have use Vue or Angular.</li>
   <li>Design: react-bootstrap. I chose this as I had some familiarity with angular bootsrap and it made mobile friendliness easier</li>
   <li>Other: [Bootswatch](https://bootswatch.com/) for it's great prebuilt bootstrap themes and [Pexels](https://www.pexels.com/) for images.</li>
 </ul>
 The authentication is done with jwt Bearer tokens. React useAuth hooks would have been useful for the frontend verifications etc, but I didn't really have time to implement it. 
+<details>
+  <summary>Even more detailed technologies used (=packages/frameworks)</summary>
+  <ul>
+    <li>bcryptjs": "^2.4.3</li>
+    <li>body-parser": "^1.20.2</li>
+    <li>cors": "^2.8.5</li>
+    <li>express": "^4.18.2</li>
+    <li>express-session": "^1.17.3</li>
+    <li>jsonwebtoken": "^9.0.0</li>
+    <li>mongoose": "^6.10.0</li>
+    <li>passport": "^0.6.0</li>
+    <li>passport-jwt": "^4.0.1</li>
+    <li>bootstrap": "^5.2.3</li>
+    <li>date-fns": "^2.29.3</li>
+    <li>react": "^18.2.0</li>
+    <li>react-bootstrap": "^2.7.2</li>
+    <li>react-dom": "^18.2.0</li>
+    <li>react-router-dom": "^6.8.1</li>
+    <li>react-scripts": "5.0.1</li>
+    <li>web-vitals": "^2.1.4"</li>
+  </ul>
+</details>
+
 
 ### Workflow
 I first created the backend. The backend was mainly created from previous knowledge and built along the frontend when needed. Frontend was created using npm `create-react-app npx` and `generate-react-cli component`. Then modified to my liking. The choices and what the code does is more in detail in the project comments in the files. 
